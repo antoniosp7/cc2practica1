@@ -38,7 +38,6 @@ services:
     - LDAP_ADMIN_PASSWORD=admin_pass
    ports:
     - 389:389
-    - 636:636
   web:
    container_name: servicio_nginx_30249881
    image: nginx:latest
