@@ -1,10 +1,15 @@
 version: '3'
 services:
-  nextcloud:
+  nginx:
+   container_name: servicio_nginx_30249881
+   ports:
+      - 31026:80
+   build: "./nginx"
+   depends_on:
+     - nextcloud01
+  nextcloud01:
     container_name: servicio_nextcloud_30249881
     image: "nextcloud:21.0.0-apache"
-    ports:
-      - 31026:80
     restart: always
     volumes:
       - nextcloud:/var/www/html
@@ -15,8 +20,6 @@ services:
       - MYSQL_HOST=mariadb
       - NEXTCLOUD_ADMIN_USER=<NEXTCLOUD_ADMIN_USER>
       - NEXTCLOUD_ADMIN_PASSWORD=<NEXTCLOUD_ADMIN_PASSWORD>
-
-
   mariadb:
     container_name: servicio_mysql_30249881
     image: "mariadb:10.4.8-bionic"
@@ -38,11 +41,6 @@ services:
     - LDAP_ADMIN_PASSWORD=admin_pass
    ports:
     - 389:389
-  web:
-   container_name: servicio_nginx_30249881
-   image: nginx:latest
-   volumes:
-    - nginx.conf
 volumes:
   nextcloud:
   db:
