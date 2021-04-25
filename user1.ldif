@@ -1,0 +1,14 @@
+dn: cn=antoniomanuel,ou=Users,dc=openstack,dc=org
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: antoniomanuel
+uid: antoniomanuel
+uidNumber: 16859
+gidNumber: 100
+homeDirectory: /home/antoniomanuel
+gecos: antoniomanuel
+shadowMax: 0
+shadowWarning: 0
+loginShell: /bin/csh
